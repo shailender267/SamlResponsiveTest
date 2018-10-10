@@ -1,39 +1,74 @@
 <!DOCTYPE html>
+<!-- SiteMinder Encoding=ISO-8859-1; -->
+<!-- @username=%USER%
+@smretries=0 -->
 <html>
+<!-- Start Header -->
 <head>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<title>Login</title>
+	<title>Application Login</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<SCRIPT LANGUAGE="JavaScript">
+			function resetCredFields()
+			{
+				document.login.PASSWORD.value = "";
+				sm_error_msg = document.login.sm_error_msg.value;
+				if( sm_error_msg == 1)
+				{
+				var errorTextCell = document.getElementById("errorText");
+				errorTextCell.innerHTML = "Invalid User ID/password combination. Please try again.";
+				}
+				else if(sm_error_msg == 2)
+				{
+				var errorTextCell = document.getElementById("errorText");
+				errorTextCell.innerHTML = "Specified user does not have permission to access this application.";
+				}
+			}			
+			function submitForm()
+			{
+					 document.Login.submit();
+			}			
+	</SCRIPT>
 </head>
+<!-- End Header -->
+
+<!-- Start Content -->
 <body>
 	<div class="container-fluid">
 		<div class="row bg-primary" >
 			
 			<div class="col-md-offset-1">
-				<img class="logo" src='https://www.antheminc.com/cs/groups/wellpoint/@wp_news_main/documents/wlp_assets/d19l/mji2/~edisp/pw_e226255.jpg'>
+				<img class="logo" src='./images/Anthem_Inc_Reversed.png'>
 			</div>
-		</div>
-		
+		</div>		
 	</div>
 
-	<div class="container bodyClass">
-		<div class="row">
-		<div class="col-sm-6">
-	
-		</div>
-		<div class="col-md-5">
-			<form class="form-horizontal formClass">
+	<div class="container main-container">
+		<div class="row"> 
+		<div class="col-sm-offset-3 col-sm-8 col-md-offset-5 col-md-6">
+			<form class="form-horizontal formClass" name="login" method="POST">
+					<input type=hidden name=target value="$$target$$">
+					<input type=hidden name=sm_error_msg value="$$sm_error_msg$$">
+					<input type=hidden name=smquerydata value="$$smquerydata$$">
+					<input type=hidden name=smauthreason value="$$smauthreason$$">
+					<input type=hidden name=smagentname value="$$smagentname$$">
+					<input type=hidden name=postpreservationdata value="$$postpreservationdata$$">
+					<INPUT TYPE=HIDDEN NAME="SMENC" VALUE="ISO-8859-1">
+					<INPUT type=HIDDEN name="SMLOCALE" value="US-EN">
+					<!-- <span class="contentRedBold">$$sm_error$$</span>
+					<span class="contentRedBold">Invalid User ID/Password combination. Please try again.</span> -->
 				  <div class="form-group">
-				    <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
+				    <label for="inputEmail3" class="col-sm-3 control-label">User ID:</label>
 				    <div class="col-sm-8">
-				      <input type="email" class="form-control" id="inputEmail3" placeholder="YourMail@outlook.com">
+				      <input type="text" class="form-control" name="USER" value="" onChange="javascript:this.value=this.value.toUpperCase()" tabindex="1" placeholder="Enter User ID here">
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
 				    <div class="col-sm-8">
-				      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+				      <input type="password" name="PASSWORD" tabindex="2" class="form-control" id="inputPassword3" placeholder="Enter Password here">
 				    </div>
 				  </div>
 				  <div class="form-group">
@@ -47,7 +82,7 @@
 				  </div>
 				  <div class="form-group">
 				    <div class="col-sm-offset-3 col-sm-9">
-				      <button type="submit" class="btn btn-default">Sign in</button>
+				      <button type="submit" class="btn btn-primary">Login</button>
 				    </div>
 				  </div>
 			</form>
@@ -58,10 +93,12 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 footerClass">&copy;2018 Anthem Inc.| All Rights Reserved| <span>Legal Notice</span>| <span>Privacy Notice</span></div>
+			<div class="col-md-12 footerClass">&copy; 2018 Anthem Inc.  &nbsp;&nbsp;  |  &nbsp;&nbsp;  All Rights Reserved   &nbsp;&nbsp;  |  &nbsp;&nbsp;  <a href="#" onClick="openWindow('common/legal.html');">Legal Notice</a>  &nbsp;&nbsp;  |   &nbsp;&nbsp;  <a href="#" onClick="openWindow('common/privacy.html');">Privacy Notice</a></div>
 		</div>
 	</div>
-	
+	<!-- <a href="#" onClick="JavaScript:history.back();">Click here to try again</a> -->
+
+	<!-- <td width="100%" name="errorText" id="errorText" class="contentRedBold" height="30">$$sm_error$$</td> -->
 
 </body>
 </html>
