@@ -25,17 +25,43 @@
       rgba(255, 255, 255, 0.15)
     ),
     url('./images/bg-Straight.jpg');
-	margin-top: 50px; 
+	/* margin-top: 50px;  */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover; 
 }
 
 .contentRedBold {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
     color: #D42444;
     font-family: Arial, Verdana, Helvetica, sans-serif;
     font-size: 12px;
     display: block;
     font-weight: bold;
+}
+
+.footer-wrap{
+	position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px ) { 
+	.footerClass a{
+		margin-top: 20px; 
+		display: inline-block;
+	}
+
+	.py-xs-0{
+		padding-left:0px;
+		padding-right: 0px;  
+	}
+	.formClass {
+		padding: 50px 20px 30px;
+	}
+	.footer-wrap{
+		position: static; 
+	}	
 }
